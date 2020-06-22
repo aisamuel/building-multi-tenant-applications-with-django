@@ -25,7 +25,7 @@ SECRET_KEY = "n*z@*&0ein2+poiu$rhkv2c0a@^2gbzg=g!_e%+dz#2ik5f$g2"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["polls.local", ".polls.local"]
+ALLOWED_HOSTS = ["localhost", ".localhost"]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -84,14 +84,26 @@ WSGI_APPLICATION = "pollsapi.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "polls",
+#         "USER": "polls",
+#         "PASSWORD": "p0ll5",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "polls",
-        "USER": "polls",
-        "PASSWORD": "p0ll5",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'example',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
+
 
 
 # Password validation

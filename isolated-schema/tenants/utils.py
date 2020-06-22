@@ -19,4 +19,4 @@ def set_tenant_schema_for_request(request):
 
 
 def get_tenants_map():
-    return {"thor.polls.local": "thor", "poter.polls.local": "potter"}
+    return {"thor.localhost": "thor", "potter.localhost": "potter"}

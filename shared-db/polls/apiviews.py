@@ -8,14 +8,19 @@ from rest_framework.exceptions import PermissionDenied
 from django.contrib.auth import authenticate
 
 from .models import Poll, Choice
+from tenants.models import Tenant
 from .serializers import (
     PollSerializer,
     ChoiceSerializer,
     VoteSerializer,
     UserSerializer,
+    TenantSerializer
 )
 from tenants.utils import tenant_from_request
 
+class TenantViewSet(viewsets.ModelViewSet):
+    queryset = Tenant.objects.all()
+    serializer_class = TenantSerializer
 
 class PollViewSet(viewsets.ModelViewSet):
     queryset = Poll.objects.all()

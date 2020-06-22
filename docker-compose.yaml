@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+  dj:
+    # container_name: dpshared
+    # build: shared-db
+    # container_name: isolated-schema
+    # build: isolated-schema
+    container_name: isolated-db
+    build: isolated-db
+    command: python manage.py runserver 0.0.0.0:80
+    volumes:
+      - ./isolated-db:/code
+    ports:
+      - "80:80"
+    # environment:
+    #   - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - db
+      # - redis
+  # redis:
+  #   container_name: redissmartsch
+  #   image: redis:4.0.11

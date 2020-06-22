@@ -25,7 +25,7 @@ SECRET_KEY = "n*z@*&0ein2+poiu$rhkv2c0a@^2gbzg=g!_e%+dz#2ik5f$g2"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["polls.local", ".polls.local"]
+ALLOWED_HOSTS = [".localhost", "localhost"]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -90,6 +90,21 @@ DATABASES = {
     "potter": {"ENGINE": "django.db.backends.sqlite3", "NAME": "potter.db"},
 }
 
+# DATABASES = {
+#     "default": {"ENGINE": 'django_tenants.postgresql_backend', 'PASSWORD': 'example', 'HOST': 'db', 'PORT': 5432, "NAME": "default.db"},
+#     "thor": {"ENGINE": 'django_tenants.postgresql_backend', 'PASSWORD': 'example', 'HOST': 'db', 'PORT': 5432, "NAME": "thor.db"},
+#     "potter": {"ENGINE": 'django_tenants.postgresql_backend','PASSWORD': 'example', 'HOST': 'db', 'PORT': 5432, "NAME": "potter.db"},
+# }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django_tenants.postgresql_backend',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': 'example',
+#         'HOST': 'db',
+#         'PORT': 5432,
+#     }
+# }
 DATABASE_ROUTERS = ["tenants.router.TenantRouter"]
 
 # Password validation

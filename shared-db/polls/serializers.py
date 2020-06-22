@@ -4,7 +4,12 @@ from rest_framework.authtoken.models import Token
 from rest_framework import serializers
 
 from .models import Poll, Choice, Vote
+from tenants.models import Tenant
 
+class TenantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tenant
+        fields = "__all__"
 
 class VoteSerializer(serializers.ModelSerializer):
     class Meta:
